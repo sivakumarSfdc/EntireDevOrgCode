@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    <div class="slds-page-header">
+        <div class="slds-media__body">
+            <h1 class="slds-page-header__title slds-truncate slds-align-middle">This Fourt Example From Document Multiplcation</h1>
+        </div>
+    </div>
+    <br />
+
+    
+    <ui:inputText aura:id="FNumber" label="Enter First Number : " placeholder="A value" />
+	<ui:inputText aura:id="SNumber" label="Enter Second Number : " placeholder="B value" />
+    <br />
+    <br />
+    <lightning:button aura:id="btn_sum" name="sum" label="SUM" onclick="{!c.getResult}" />
+    <lightning:button aura:id="btn_mul" name="mul" label="MUL" onclick="{!c.getResult}" />
+    <lightning:button aura:id="btn_div" name="div"  label="DIV" onclick="{!c.getResult}" />
+    <lightning:button aura:id="btn_sub" name="sub" label="SUB" onclick="{!c.getResult}" />
+    <br />
+    <ui:outputText aura:id="out" value="" />
+
+</aura:component>

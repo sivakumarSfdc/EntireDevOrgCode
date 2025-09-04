@@ -1,0 +1,24 @@
+<template>
+    <lightning-card  title="Fiil The Forumn" icon-name="standard:form">
+        <template if:true={isShowForum}>
+            <div class="slds-var-p-around_medium lgc-bg">
+                <lightning-input type="text" label="Enter First Name"></lightning-input>
+                <lightning-input type="text" label="Enter Last Name"></lightning-input>
+                <lightning-input type="text" label="Enter Email"></lightning-input>
+                <lightning-input type="text" label="Enter Phone Number"></lightning-input>
+                <br>
+             </div>
+             <div slot="footer">
+                <lightning-button label="HideForm" onclick={HideFormHandler}></lightning-button>
+            </div>
+
+        
+        </template>
+        <template if:false={isShowForum}>
+            <div slot="footer">
+                <lightning-button label="ShowForm" onclick={ShowFormHandler}></lightning-button>
+            </div>
+         </template>
+
+    </lightning-card>
+</template>

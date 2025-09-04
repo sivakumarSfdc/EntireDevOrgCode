@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPage>AccountViewerPage</flexiPage>
+    <label>Account Information</label>
+    <motif>Custom32: Factory</motif>
+</CustomTab>

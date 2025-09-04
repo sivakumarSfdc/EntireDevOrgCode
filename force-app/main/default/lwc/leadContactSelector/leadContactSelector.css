@@ -1,0 +1,52 @@
+/* Custom modal wrapper */
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.4); /* faint overlay */
+}
+
+/* Modal container */
+.custom-modal__container {
+    background: #fff;
+    border-radius: 0.5rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.custom-modal__header {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Body */
+.custom-modal__content {
+    padding: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Footer */
+.custom-modal__footer {
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+.scrollable-radio {
+    max-height: 80px;   /* Scroll only if > 5 contacts */
+    overflow-y: auto;
+    /*padding-right: 0.5rem; /* space for scrollbar */
+    padding-left: 20px;
+}

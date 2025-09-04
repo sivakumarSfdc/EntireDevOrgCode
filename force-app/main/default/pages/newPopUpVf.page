@@ -1,0 +1,40 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+    <apex:slds />
+
+    <style>
+        .custom-error-box {
+            display: inline-flex;
+            align-items: center;
+            background-color: #e60000;
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+            line-height: 1.4;
+            max-width: 80%;
+            box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.3); /* highlight effect */
+        }
+        .custom-error-box svg {
+            margin-right: 6px;
+            flex-shrink: 0;
+            fill: white;
+        }
+    </style>
+
+    <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-center" style="margin-top: 20px;">
+        <div class="custom-error-box">
+            <!-- Error Icon -->
+            <svg class="slds-icon slds-icon_x-small" aria-hidden="true" viewBox="0 0 52 52">
+                <path d="M26 2C12.7 2 2 12.7 2 26s10.7 24 24 24 24-10.7 24-24S39.3 2 26 2zm0 44c-11 0-20-9-20-20S15 6 26 6s20 9 20 20-9 20-20 20z"></path>
+                <path d="M24 14h4v16h-4V14zm0 20h4v4h-4v-4z"></path>
+            </svg>
+            <span>
+                This is your error message. It will dynamically resize to fit the content length without large spacing.
+            </span>
+        </div>
+    </div>
+
+    <div class="slds-grid slds-grid_align-center" style="margin-top: 15px;">
+        <button class="slds-button slds-button_neutral">Retry Action</button>
+    </div>
+</apex:page>

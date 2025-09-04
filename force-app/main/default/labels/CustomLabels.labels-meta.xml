@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Case_Orgin</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Case Orgin</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>Deactivate_Trigger</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deactivate Trigger</shortDescription>
+        <value>true</value>
+    </labels>
+    <labels>
+        <fullName>ShowBikeLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ShowBikeLabel</shortDescription>
+        <value>Karizma</value>
+    </labels>
+    <labels>
+        <fullName>ShowCarLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ShowCarLabel</shortDescription>
+        <value>Safari Dicor</value>
+    </labels>
+    <labels>
+        <fullName>VeriPhone_APIKEY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VeriPhone APIKEY</shortDescription>
+        <value>8984C072A6FA4C00B57690406EF09D5D</value>
+    </labels>
+    <labels>
+        <fullName>WelcomeLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WelcomeLabel</shortDescription>
+        <value>LWC Conditional Rendering</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,38 @@
+<apex:page controller="AddRemoveRowsController" sidebar="false" showHeader="false">
+    <apex:form >
+        <apex:actionStatus id="pleaseWait">
+           <apex:facet name="start">
+               <apex:image value="{!$Resource.Loading}" style="position: absolute;left: 35%;top: 10%;"/>
+           </apex:facet>
+       </apex:actionStatus>
+        <apex:pageBlock id="pb">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Add" action="{!addRow}" rerender="pb" status="pleaseWait" />
+                <apex:commandButton value="Save" action="{!save}" rerender="pb" status="pleaseWait"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!lstContacts}" var="e">
+                <apex:column headerValue="Name">
+                    <apex:inputfield value="{!e.con.FirstName}"/>
+                </apex:column>
+                <apex:column headerValue="Account Name">
+                    <apex:inputfield value="{!e.acc.Name}"/>
+                </apex:column>
+                <apex:column headerValue="Last Name">
+                    <apex:inputfield value="{!e.con.LastName}"/>
+                </apex:column>
+                <apex:column >
+                    {!e.index}
+                    <apex:commandLink onclick="removeRows('{!e.index}');return false;">
+                        <apex:image value="{!$Resource.REMOVE_ICON}" style="width:25px"/>
+                    </apex:commandLink>
+                    <!--<apex:commandbutton value="Remove" onclick="removeRows('{!e.index}');return false;">
+                    </apex:commandButton>-->
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:actionFunction name="removeRows" action="{!removeRow}" rerender="pb" status="pleaseWait">
+            <apex:param assignTo="{!selIndex}" value="" name="index"/>
+        </apex:actionFunction>
+    </apex:form>
+</apex:page>

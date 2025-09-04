@@ -1,0 +1,13 @@
+<aura:component >
+    
+    <aura:attribute name="att_msg" type="String" />
+    <aura:attribute name="att_no_of_events" type="Integer" default="0" />
+    
+    <aura:handler event ="c:LEX_ApplicationEvent" action="{!c.fetchDataFromAppEvent}" />
+    
+    {!v.att_msg}
+    <br />
+    <br />
+    No of Events = {!v.att_no_of_events}
+	
+</aura:component>

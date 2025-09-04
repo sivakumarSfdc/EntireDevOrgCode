@@ -1,0 +1,17 @@
+<aura:component  >
+    
+    <aura:registerEvent name="attNotifierCompoEvent" type="c:ComponentEvent_For_CENotifier_CEHandler" />
+    <div class="slds-page-header">
+        <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle">Case study of component event</h1>
+        </div>
+    </div>
+    <br />
+    <br />
+    
+   <lightning:button label="Click here to fire notifier component" onclick="{!c.FireNotifierSideJSCode}" />
+
+    <br />
+    <br />
+	
+</aura:component>

@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <template if:true={records}>
+            <lightning-datatable 
+            key-field="recordId" 
+            data={combinedData} 
+            columns={columns} 
+            hide-checkbox-column="true">
+           </lightning-datatable>
+           <template if:true={isNoChild}>
+            <div class="slds-align_absolute-center" style="height: calc(100% - 2rem);"> <!-- Adjust height as needed -->
+                <p>No Child Records</p>
+            </div>
+        </template>
+                </template>
+        <template if:true={error}>
+            <p>{error.message}</p>
+        </template>
+    </lightning-card>
+</template>

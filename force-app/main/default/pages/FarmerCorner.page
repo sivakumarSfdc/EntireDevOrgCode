@@ -1,0 +1,417 @@
+<apex:page controller="ExpenceController" sidebar="false" showHeader="false">
+    <style>
+        body {
+            background-color: #f5f5f5; /* Light grey background */
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background-color: #ffffff; /* White form background */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners for a modern look */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .form-heading {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: #2c3e50; /* Dark navy blue color for heading */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-sideheading {
+            font-size: 18px; /* Adjust the font size as needed */
+            font-weight: bold;
+            text-align: left;
+            margin-top: 50px; /* Adjust the margin as needed */
+            color: #2c3e50; /* Dark navy blue color for side heading */
+            font-family: 'Roboto', sans-serif; /* Change the font family as needed */
+        }
+
+        .form-sideheadingtwo {
+            font-size: 18px; /* Adjust the font size as needed */
+            font-weight: bold;
+            text-align: left;
+            margin-top: 20px; /* Adjust the margin as needed */
+            color: #2c3e50; /* Dark navy blue color for side heading */
+            font-family: 'Roboto', sans-serif; /* Change the font family as needed */
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 20px; /* Gap between grid items */
+            margin-top: 20px; /* Margin top to separate from side heading */
+        }
+
+        .form-group {
+            margin-bottom: 1px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50; /* Dark navy blue color for labels */
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .expense-row {
+            display: flex;
+            justify-content: center; /* Centering the row */
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center the buttons */
+            gap: 10px; /* Space between the buttons */
+            margin-top: 20px;
+        }
+
+        .add-button,
+        .submit-button {
+            background-color: #E83B26; /* Button color */
+            color: #2c3e50; /* Button text color */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add-button:hover,
+        .submit-button:hover {
+            background-color: #c72a20; /* Darker color on hover */
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .server-error {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .inline-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0px; /* Space between label and checkbox */
+         }
+
+        .inline-checkbox label {
+           margin-bottom: 0;
+         }
+         
+         * {
+             margin: 0;
+             padding: 0;
+         }
+         
+         .loader {
+             display: none;
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             z-index: 9999;
+         }
+         
+         .loading {
+             border: 2px solid #ccc;
+             width: 60px;
+             height: 60px;
+             border-radius: 50%;
+             border-top-color: #1ecd97;
+             border-left-color: #1ecd97;
+             animation: spin 1s infinite ease-in;
+         }
+         
+         @keyframes spin {
+            0% {
+                transform: rotate(0deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+         }
+         
+         .blurred {
+            filter: blur(5px);
+            pointer-events: none;
+         }
+    </style>
+    
+    <apex:slds />
+
+    <div class="loader">
+        <div class="loading"></div>
+    </div>
+
+    <div class="form-container">
+        <div class="slds-scope">
+            <apex:form id="expenseForm">
+                <div class="form-heading">Welcome To Farmer Corner</div>
+                <div class="form-sideheading">Farmer Section:</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name"/>
+                        <div id="nameError" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date"/>
+                        <div id="dateError" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone"/>
+                        <div id="phoneError" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="Email"/>
+                        <div id="emailError" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="earned">Earned</label>
+                        <input type="text" id="earn" name="Earn" placeholder="Amount" value="0"/>
+                        <div id="earnError" class="error-message"></div>
+                    </div>
+                    <div class="form-group inline-checkbox">
+                        <label for="exp">BypassExp</label>
+                        <input type="checkbox" id="exp" name="exp" value="false"/>
+                    </div>
+                </div>
+                <div class="form-sideheadingtwo">Expenses List:</div>
+                <div id="expenseContainer">
+                    <div class="expense-row">
+                        <select id="expenseType0" name="expenseType0">
+                            <option value="seeds">Seeds</option>
+                            <option value="tractor">Tractor</option>
+                            <option value="labour">Labour</option>
+                            <option value="pesticides">Pesticides</option>
+                        </select>
+                        <input type="text" id="amount0" name="amount0" placeholder="Amount"/>
+                        <div id="amountError0" class="error-message"></div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="button" class="add-button" onclick="addExpenseRow()">Add</button>
+                    <button type="button" class="submit-button" onclick="validateForm()">Submit</button>
+                </div>
+                <div id="serverError" class="server-error" style="display:none;"></div>
+            </apex:form>
+        </div>
+    </div>
+
+    <script>
+        let expenseCount = 1;
+
+        function addExpenseRow() {
+            const expenseContainer = document.getElementById('expenseContainer');
+            const newRow = document.createElement('div');
+            newRow.className = 'expense-row';
+            
+            const newExpenseType = document.createElement('select');
+            newExpenseType.id = `expenseType${expenseCount}`;
+            newExpenseType.name = `expenseType${expenseCount}`;
+            newExpenseType.innerHTML = `
+                <option value="seeds">Seeds</option>
+                <option value="tractor">Tractor</option>
+                <option value="labour">Labour</option>
+                <option value="pesticides">Pesticides</option>
+            `;
+            
+            const newAmount = document.createElement('input');
+            newAmount.type = 'text';
+            newAmount.id = `amount${expenseCount}`;
+            newAmount.name = `amount${expenseCount}`;
+            newAmount.placeholder = 'Amount';
+
+            const newAmountError = document.createElement('div');
+            newAmountError.id = `amountError${expenseCount}`;
+            newAmountError.className = 'error-message';
+            
+            newRow.appendChild(newExpenseType);
+            newRow.appendChild(newAmount);
+            newRow.appendChild(newAmountError);
+            expenseContainer.appendChild(newRow);
+            
+            expenseCount++;
+        }
+
+        function validateForm() {
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const serverError = document.getElementById('serverError');
+            const phonePattern = /^[0-9]{10}$/; // Adjust this pattern based on your requirements
+            const emailPattern = /^[a-zA-Z0-9]+@gmail\.com$/;
+            const earnedPattern = /^\d+(\.\d{1,2})?$/; // Decimal number pattern with up to 2 decimal places
+
+            const nameInput = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            
+            const dateInput = document.getElementById('date');
+            const dateError = document.getElementById('dateError');
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            
+            const earnedInput = document.getElementById('earn');
+            const earnedError = document.getElementById('earnError');
+            const earnedInputDecimal = earnedInput.value.trim() === '' ? 0 : parseFloat(earnedInput.value);
+            const bypassExp = document.getElementById('exp');
+            console.log('exp :' + bypassExp.checked);
+            
+            let isValid = true;
+            
+            if (earnedPattern.test(earnedInput.value) || earnedInput.value.trim() === '') {
+                earnedError.textContent = '';
+            } else {
+                earnedError.textContent = 'Please enter valid Amount';
+                isValid = false;
+            }
+
+            if (!phonePattern.test(phoneInput.value)) {
+                phoneError.textContent = 'Please enter a valid 10-digit phone number.';
+                isValid = false;
+            } else {
+                phoneError.textContent = '';
+            }
+            if (nameInput.value === '') {
+                nameError.textContent = 'Please enter Name.';
+                isValid = false;
+            } else {
+                nameError.textContent = '';
+            }
+
+            if (dateInput.value === '') {
+                dateError.textContent = 'Please enter Date.';
+                isValid = false;
+            } else {
+                dateError.textContent = '';
+            }
+            if (!emailPattern.test(emailInput.value)) {
+                emailError.textContent = 'Please enter Email.';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            for (let i = 0; i < expenseCount; i++) {
+                const amountInput = document.getElementById(`amount${i}`);
+                const amountError = document.getElementById(`amountError${i}`);
+                const amountPattern = /^\d+(\.\d{1,2})?$/; // Decimal number pattern with up to 2 decimal places
+
+                if (amountInput.value == '' && !amountPattern.test(amountInput.value) && !bypassExp.checked) {
+                    amountError.textContent = 'Please enter a valid decimal number.';
+                    isValid = false;
+                } else {
+                    amountError.textContent = '';
+                }
+            }
+
+            if (isValid) {
+                showSpinner();
+                serverError.style.display = 'none'; // Hide server error before submission
+                const expenseMap = getExpenseMap(bypassExp.checked);
+                console.log('Name: ' + nameInput.value);
+                console.log('Phone: ' + phoneInput.value);
+                console.log('Date: ' + dateInput.value);
+                console.log('Expense Map:', expenseMap['tractor']);
+                Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.ExpenceController.ManageExpence}',
+                    nameInput.value,
+                    phoneInput.value,
+                    dateInput.value,
+                    expenseMap,
+                    emailInput.value,
+                    earnedInputDecimal,
+                    function(result, event) {
+                        if (event.status) {
+                            alert('Data saved successfully!');
+                            setTimeout(hideSpinner, 2000);
+                            resetForm();
+                        } else {
+                            hideSpinner();
+                            alert('Error saving data: ' + event.message);
+
+                        }
+                    },
+                    {escape: true}
+                );                
+            } else {
+                serverError.style.display = 'block';
+                serverError.textContent = 'There are errors in the form. Please fix them and try again.';
+                hideSpinner();
+            }
+        }
+
+        function getExpenseMap(isChecked) {
+            const expenseMap = {};
+            for (let i = 0; i < expenseCount; i++) {
+                const expenseType = document.getElementById(`expenseType${i}`).value;
+                const amount = document.getElementById(`amount${i}`).value.trim() === '' ? 0 :
+                (isChecked ? 0 : parseFloat(document.getElementById(`amount${i}`).value));
+
+                if (expenseMap[expenseType]) {
+                    expenseMap[expenseType] += amount;
+                } else {
+                    expenseMap[expenseType] = amount;
+                }
+            }
+            return expenseMap;
+        }
+        
+        function resetForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('date').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('earn').value = '0';
+            document.getElementById('exp').checked = false;
+            const expenseContainer = document.getElementById('expenseContainer');
+            expenseContainer.innerHTML = `
+                <div class="expense-row">
+                    <select id="expenseType0" name="expenseType0">
+                        <option value="seeds">Seeds</option>
+                        <option value="tractor">Tractor</option>
+                        <option value="labour">Labour</option>
+                        <option value="pesticides">Pesticides</option>
+                    </select>
+                    <input type="text" id="amount0" name="amount0" placeholder="Amount"/>
+                    <div id="amountError0" class="error-message"></div>
+                </div>
+            `;
+            expenseCount = 1;
+        }
+        
+        function showSpinner() {
+            document.querySelector('.loader').style.display = 'block';
+            document.querySelector('.form-container').classList.add('blurred');
+        }
+
+        function hideSpinner() {
+            document.querySelector('.loader').style.display = 'none';
+            document.querySelector('.form-container').classList.remove('blurred');
+        }
+    </script>
+</apex:page>

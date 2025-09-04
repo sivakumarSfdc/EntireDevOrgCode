@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <!-- List custom profiles with zero users here -->
+        <members>CustomProfile1</members>
+        <members>CustomProfile2</members>
+        <!-- Add more custom profile names as needed -->
+        <name>Profile</name>
+    </types>
+    <version>62.0</version>
+</Package>

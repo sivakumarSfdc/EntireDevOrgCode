@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <decisions>
+        <name>RT_Decision_Making_Box</name>
+        <label>RT Decision Making Box</label>
+        <locationX>446</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>LED_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LED</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Secondary_RT_to_LED_RT</targetReference>
+            </connector>
+            <label>LED Outcome</label>
+        </rules>
+        <rules>
+            <name>LCD_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>LCD</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Secondary_RT_TO_LCD_RT</targetReference>
+            </connector>
+            <label>LCD Outcome</label>
+        </rules>
+        <rules>
+            <name>Plasma_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Product_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Plasma</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_Secondary_RT_to_Plasma_RT</targetReference>
+            </connector>
+            <label>Plasma Outcome</label>
+        </rules>
+    </decisions>
+    <description>v2</description>
+    <environments>Default</environments>
+    <interviewLabel>Deal Details object RT Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Deal Details object RT Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Secondary_RT_TO_LCD_RT</name>
+        <label>Update Product RT TO LCD RT</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>0125i000000FYCpAAO</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Secondary_RT_to_LED_RT</name>
+        <label>Update Product RT to LED RT</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>0125i000000FYCuAAO</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_Secondary_RT_to_Plasma_RT</name>
+        <label>update Product RT to Plasma RT</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>0125i000000FYCzAAO</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>RT_Decision_Making_Box</targetReference>
+        </connector>
+        <object>Deal_Detail__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,17 @@
+<apex:page standardController="Employee__c" sidebar="false" showHeader="false" renderAs="Pdf">
+
+    <apex:pageBlock >
+     <apex:pageBlockSection columns="2">
+       <apex:pageBlockSectionItem >
+         <apex:outputPanel >
+             First Name : <apex:outputText label="First Name" value="{!Employee__c.Name}"></apex:outputText> <br />
+             Last Name : <apex:outputText label="Last Name" value="{!Employee__c.Last_Name__c}"></apex:outputText> <br />
+             Company Name : <apex:outputText label="Account Name" value="{!Employee__c.Account__r.Name}"></apex:outputText> <br />
+
+         </apex:outputPanel>
+
+       </apex:pageBlockSectionItem>
+
+     </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

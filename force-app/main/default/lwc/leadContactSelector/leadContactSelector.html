@@ -1,0 +1,73 @@
+<template>
+    <lightning-quick-action-panel header="Select Contact">
+        <div class="slds-p-around_medium">
+
+            <!-- Spinner -->
+            <template if:true={isLoading}>
+                <div class="slds-align_absolute-center slds-m-vertical_medium">
+                    <lightning-spinner alternative-text="Loading Contacts..." size="medium"></lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Content after loading -->
+            <template if:false={isLoading}>
+
+                <!-- If contacts exist -->
+                <template if:true={hasContacts}>
+                    <div class="scrollable-radio">
+                        <lightning-radio-group
+                            label="Choose a Contact"
+                            options={contactOptions}
+                            value={selectedContactId}
+                            type="radio"
+                            onchange={handleRadioChange}
+                            class="slds-m-bottom_medium">
+                        </lightning-radio-group>
+                    </div>
+                </template>
+
+                <!-- If no contacts -->
+                <template if:false={hasContacts}>
+                    <div class="slds-text-align_center slds-m-vertical_medium">
+                        <lightning-icon 
+                            icon-name="utility:warning" 
+                            alternative-text="No Contacts"
+                            size="small"
+                            class="slds-m-bottom_small">
+                        </lightning-icon>
+                        <p class="slds-text-color_weak">No Contacts found for this Account.</p>
+                        <lightning-button 
+                            label="Create Contact" 
+                            variant="brand-outline"
+                            onclick={createContact}
+                            class="slds-m-top_small">
+                        </lightning-button>
+                    </div>
+                </template>
+
+                <!-- Error -->
+                <template if:true={hasError}>
+                    <p class="slds-text-color_error slds-text-align_center slds-m-top_small">
+                        ⚠️ {errorMessage}
+                    </p>
+                </template>
+            </template>
+        </div>
+
+        <!-- Footer -->
+        <div slot="footer" class="slds-grid slds-grid_align-end slds-p-around_x-small">
+            <lightning-button 
+                variant="neutral" 
+                label="Cancel" 
+                onclick={closeModal}
+                class="slds-m-right_small">
+            </lightning-button>
+            <lightning-button 
+                variant="brand" 
+                label="Continue" 
+                onclick={handleContinue}
+                disabled={disableContinue}>
+            </lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+</template>

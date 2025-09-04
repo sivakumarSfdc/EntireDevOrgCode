@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dice_Job_Form_CL_Custom</fullName>
+    <fields>Name</fields>
+    <fields>First_Name__c</fields>
+    <fields>Candidate_Email__c</fields>
+    <fields>OwnerId</fields>
+    <fields>Gender__c</fields>
+    <fields>Preferred_Country__c</fields>
+    <label>Dice Job Form CL Custom</label>
+</CompactLayout>

@@ -1,0 +1,27 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    <aura:attribute name="isValidorNot" type ="Boolean" />
+     <aura:attribute name="isButtonPressed" type ="Boolean" default ="false" />
+
+    <ui:inputText label="First Name " aura:id ="FName" placeholder ="First Name" />
+    
+	<ui:inputText label="Second Name " aura:id ="SName" placeholder ="Second Name" />
+    
+    <ui:inputText label="AGE " aura:id ="CAge" placeholder ="Age" />
+    
+    <ui:button label ="Validate Vote" press="{!c.getValidorNot}" />
+    
+    <aura:if isTrue ="{!and(v.isValidorNot,v.isButtonPressed)}">
+        Congrats!You are eligble for Vote.
+        <ui:button label ="submit" />
+       <!-- <aura:set attribute ="else">
+            Sorry!you are not eligible for vote.
+            <ui:button label ="Cancel" />
+        </aura:set>-->
+    </aura:if>
+    <aura:if isTrue ="{!and(not(v.isValidorNot),v.isButtonPressed)}">
+            Sorry!you are not eligible for vote.
+            <ui:button label ="Cancel" />
+    </aura:if>
+</aura:component>

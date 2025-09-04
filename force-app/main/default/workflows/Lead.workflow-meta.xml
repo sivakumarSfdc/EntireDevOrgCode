@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Confirmed_attendee_Email_alert</fullName>
+        <description>Confirmed attendee Email alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Confirmed_Attende_ET</template>
+    </alerts>
+    <alerts>
+        <fullName>No_seminar_Email_Alert</fullName>
+        <description>No seminar Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/No_seminar_ET</template>
+    </alerts>
+    <alerts>
+        <fullName>Register_Attendee_Email_Alert</fullName>
+        <description>Register Attendee Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Registered_Attendee_ET</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Matching_Account_to_Lead_Routing</fullName>
+        <description>Send Matching Account to Lead Routing</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Lead_Routing</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/MarketingProductInquiryResponse</template>
+    </alerts>
+</Workflow>

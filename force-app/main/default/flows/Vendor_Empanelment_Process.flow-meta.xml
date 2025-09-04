@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <decisions>
+        <name>Dup_decision_box</name>
+        <label>Dup decision box</label>
+        <locationX>182</locationX>
+        <locationY>566</locationY>
+        <defaultConnector>
+            <targetReference>Save_entry_in_Management_object</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>isDup_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>vendor_dup_var</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Duplicate_Screen</targetReference>
+            </connector>
+            <label>isDup Outcome</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>This phase validates the vendor Capability</description>
+        <name>Vendor_Criteria_Validating_Phase</name>
+        <label>Vendor Criteria Validating Phase</label>
+        <locationX>512</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Vendor_Invalid_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Success_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Monthly_Ave_Turnover</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>50000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Vendor_Duplicate_Checking_stage</targetReference>
+            </connector>
+            <label>Success Case</label>
+        </rules>
+        <rules>
+            <name>Failure_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Monthly_Ave_Turnover</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>50000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Monthly_Ave_Turnover</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Vendor_Failure_Screen</targetReference>
+            </connector>
+            <label>Failure Case</label>
+        </rules>
+    </decisions>
+    <description>Here we create new record if the vendor meets the criteria. Validated duplicate entry small correction</description>
+    <environments>Default</environments>
+    <interviewLabel>Vendor Empanelment Process {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Vendor Empanelment Process</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Save_entry_in_Management_object</name>
+        <label>Save entry in Management object</label>
+        <locationX>314</locationX>
+        <locationY>674</locationY>
+        <assignRecordIdToReference>record_id_varible</assignRecordIdToReference>
+        <connector>
+            <targetReference>Success_screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Avg_Turnover_per_month__c</field>
+            <value>
+                <elementReference>Monthly_Ave_Turnover</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Vendor_Email__c</field>
+            <value>
+                <elementReference>vendor_email.value</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Vendor_Name__c</field>
+            <value>
+                <elementReference>Vendor_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Vendor_Management__c</object>
+    </recordCreates>
+    <recordLookups>
+        <name>Vendor_Duplicate_Checking_stage</name>
+        <label>Vendor Duplicate Checking stage</label>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Dup_decision_box</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Vendor_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Vendor_Name</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Vendor_Email__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>vendor_email.value</elementReference>
+            </value>
+        </filters>
+        <object>Vendor_Management__c</object>
+        <outputReference>vendor_dup_var</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
+    <screens>
+        <name>Duplicate_Screen</name>
+        <label>Duplicate Screen</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>duplicate_message</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(215, 28, 50);&quot;&gt;Hi {!Vendor_Name}, Alraedy yoir record is exist in database.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Success_screen</name>
+        <label>Success screen</label>
+        <locationX>314</locationX>
+        <locationY>782</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Success_msg</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(30, 157, 176);&quot;&gt;Hi {!Vendor_Name}, Your record is inserted{!record_id_varible}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>This screen Holds the Vendor data</description>
+        <name>Vendor_Data_Entry_Screen</name>
+        <label>Vendor Data Entry Screen</label>
+        <locationX>512</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Vendor_Criteria_Validating_Phase</targetReference>
+        </connector>
+        <fields>
+            <name>Vendor_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Vendor Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Monthly_Ave_Turnover</name>
+            <dataType>Currency</dataType>
+            <fieldText>Monthly Ave Turnover</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+        </fields>
+        <fields>
+            <name>vendor_email</name>
+            <extensionName>flowruntime:email</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>required</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>This screen holds the failure text</description>
+        <name>Vendor_Failure_Screen</name>
+        <label>Vendor Failure Screen</label>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>vendor_failure_text</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(218, 15, 15);&quot;&gt;Hi {!Vendor_Name},&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(218, 15, 15);&quot;&gt;Thank you for showing interest to working with us. Sorry, we are not ready to Proceed further due to your turn over is :{!Monthly_Ave_Turnover}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(218, 15, 15);&quot;&gt;Thanks,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(218, 15, 15);&quot;&gt;{!$User.FirstName}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>This screen holds invalid vendor text</description>
+        <name>Vendor_Invalid_Screen</name>
+        <label>Vendor Invalid Screen</label>
+        <locationX>842</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>vendor_invalid_text</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(17, 53, 50);&quot;&gt;Sorry! Try to enter correct Turn Over.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>This Screen Holds Vendor Greeting Message!</description>
+        <name>Vendor_Welcome_Screen</name>
+        <label>Vendor Welcome Screen</label>
+        <locationX>512</locationX>
+        <locationY>134</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Vendor_Data_Entry_Screen</targetReference>
+        </connector>
+        <fields>
+            <name>Vendor_welcome_greeting</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(186, 82, 13);&quot;&gt;Thanks&apos; For Showing Interest to work with us!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px; color: rgb(47, 41, 102);&quot;&gt;(Please Click Next to Proceed--&lt;/span&gt;&lt;span style=&quot;color: rgb(47, 41, 102);&quot;&gt;)&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>386</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Vendor_Welcome_Screen</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>record_id_varible</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>we will show this id for end user</description>
+        <name>valid_vendor_record_id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>vendor_dup_checked_var</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>vendor_dup_var</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Vendor_Management__c</objectType>
+    </variables>
+</Flow>

@@ -1,0 +1,10 @@
+<aura:component 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+    
+    <ui:inputText label="FirstName" aura:id ="FN" placeholder ="Enter First Name" />
+	<ui:inputText label="SecondName" aura:id ="SN" placeholder ="Enter Second Name" />
+    <ui:button label ="Click" press ="{!c.processInput}" />
+	<ui:outputText  aura:id ="Out" value ="" />
+
+</aura:component>

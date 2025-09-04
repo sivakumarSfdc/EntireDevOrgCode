@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expertise__c</fullName>
+    <label>Expertise</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AI</fullName>
+                <default>false</default>
+                <label>AI</label>
+            </value>
+            <value>
+                <fullName>APEX</fullName>
+                <default>false</default>
+                <label>APEX</label>
+            </value>
+            <value>
+                <fullName>C</fullName>
+                <default>false</default>
+                <label>C</label>
+            </value>
+            <value>
+                <fullName>JAVA</fullName>
+                <default>false</default>
+                <label>JAVA</label>
+            </value>
+            <value>
+                <fullName>JAVA SCRIPT</fullName>
+                <default>false</default>
+                <label>JAVA SCRIPT</label>
+            </value>
+            <value>
+                <fullName>PYTHON</fullName>
+                <default>false</default>
+                <label>PYTHON</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

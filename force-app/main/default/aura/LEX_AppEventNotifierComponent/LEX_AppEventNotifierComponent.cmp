@@ -1,0 +1,15 @@
+<aura:component >
+    <aura:registerEvent name="AppEvent" type="c:LEX_ApplicationEvent" />
+    
+    <div class="slds-page-header">
+        <div class="slds-media__body">
+            <h1 class="slds-page-header__title slds-truncate slds-align-middle"> This AppEvent Triggered From Notifier Component</h1>
+        </div>
+    </div>
+    <br />
+    <br />
+    <lightning:button label="Fire App Event" onclick="{!c.fireNotifierCompoController}" />
+    <br />
+    <br />
+	
+</aura:component>

@@ -1,0 +1,25 @@
+<apex:page controller="TestAlertController">
+    <apex:form >
+        <apex:pageBlock title="Insert Record">
+            <apex:pageBlockSection >
+                <apex:inputText value="{!type}" label="Enter Value"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:inputText value="{!message}" label="Enter Message"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Submit" action="{!submit}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+
+    <!-- Pass message dynamically -->
+    <apex:outputPanel rendered="{!showPopup}">
+        <c:DisplayAlert type="{!type}" message="{!message}"/>
+    </apex:outputPanel>
+    <script>
+      function captureCallback(){
+        alert('callback triggered');
+      }
+    </script>
+</apex:page>

@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+    
+    <div class="slds-page-header">
+        <div class="slds-media__body">
+            <h1 class="slds-page-header__title slds-truncate slds-align-middle">This Second Example From Document If-else</h1>
+        </div>
+    </div>
+    <br />
+    
+    <aura:attribute name="att_Gender" type="String" default="f" />
+    <aura:attribute name="att_oneName" type="String" default="Shekhar" />
+    <aura:attribute name="att_secName" type="String" default="Sunitha" />
+
+    <aura:if isTrue ="{!v.att_Gender == 'f'}">
+        Miss.{!v.att_secName}
+        <!--<aura:set attribute="else">
+            Mr.{!v.att_oneName}
+        </aura:set>-->
+    </aura:if>
+    
+    <aura:if isTrue="{!v.att_Gender=='m'}">
+        Mr.{!v.att_oneName}
+    </aura:if>
+	
+</aura:component>

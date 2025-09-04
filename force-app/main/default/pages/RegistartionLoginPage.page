@@ -1,0 +1,76 @@
+<apex:page sidebar="false" showHeader="false" controller="LoginForm">
+   <style>
+      .form-background {
+         display: flex;
+         align-items: center;
+         padding: 8px;
+         border: 1px solid #ccc;
+         max-width: 400px;
+         margin: 20px auto;
+         border-radius: none;
+         justify-content: center;
+         margin-top: 15%;
+      }
+
+      .form-content {
+         text-align: left;
+      }
+
+      .title-font {
+         font-size: 18px;
+         font-weight: bold;
+         margin-bottom: 20px;
+         margin-left:140px;
+      }
+
+      .form-label {
+         margin-bottom: 5px;
+      }
+
+      .form-input {
+         width: 100%; 
+         box-sizing: border-box; 
+         margin-bottom: 10px; 
+      }
+
+      
+      .form-button {
+         width: 100%; 
+         background-color: #4CAF50; 
+         color: white;
+         padding: 15px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         border: none; 
+         border-radius: 5px;
+         cursor: pointer;
+      }
+
+
+      .form-button:hover {
+         background-color: #45a049; 
+      }
+   </style>
+
+   <apex:form >
+      <apex:pageMessages />
+      <div class="form-background">
+         <div class="form-content">
+            <div class="title-font">
+               <apex:outputText >Login Form</apex:outputText>
+            </div>
+            <apex:outputLabel value="User Name" styleClass="form-label" />
+            <apex:inputText id="username" styleClass="form-input" value="{!varUserName}" />
+            
+            <apex:outputLabel value="Password" styleClass="form-label" />
+            <apex:inputSecret id="password" styleClass="form-input" value="{!varPassword}" />
+            
+            <apex:commandButton value="Login" styleClass="form-button" action="{!Login}" />
+            <apex:commandButton value="Sign Up" styleClass="form-button" action="{!SignUp}" />
+
+         </div>
+      </div>
+   </apex:form>
+</apex:page>

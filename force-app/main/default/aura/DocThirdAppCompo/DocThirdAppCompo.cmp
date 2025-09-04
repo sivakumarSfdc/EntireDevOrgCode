@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<div class="slds-page-header">
+        <div class="slds-media__body">
+            <h1 class="slds-page-header__title slds-truncate slds-align-middle">This Third Example From Document using Js</h1>
+        </div>
+    </div>
+    <br />
+    <aura:attribute name="att_Full_Name" type="String" />
+    <ui:inputText label="FirstName :" aura:id="FName" placeholder="FN" />
+    <ui:inputText label="SecondName :" aura:id="SName" placeholder="SN" />
+   <!-- <ui:inputText label="Gender :" aura:id="gender" placeholder="M/F" />-->
+    <div class="slds-form slds-form_horizontal slds-p-around_medium">
+        <lightning:select aura:id="pl_gender" label="Gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </lightning:select>
+    </div>
+    <br />
+    <lightning:button label="Click-To-Get-FullName" aura:id="button_1" name="button_1" onclick="{!c.GetFullName}" />
+    <br />
+    <ui:outputText  aura:id="FullName" value="" />
+</aura:component>

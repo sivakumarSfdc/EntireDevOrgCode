@@ -1,0 +1,10 @@
+<apex:page >
+    <apex:form >
+        <c:DisplayAlert alertId="dynamicAlert"/>
+
+        <apex:commandButton value="Short Msg" 
+            onclick="showAlert('Small error message', 'error', 'dynamicAlert'); return false;" />
+        <apex:commandButton value="Long Msg" 
+            onclick="showAlert('This is a much longer message that may span multiple lines and should automatically wrap without breaking layout.', 'warning', 'dynamicAlert'); return false;" />
+    </apex:form>
+</apex:page>

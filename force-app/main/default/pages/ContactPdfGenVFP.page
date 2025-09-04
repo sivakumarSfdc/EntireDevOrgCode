@@ -1,0 +1,30 @@
+<apex:page Controller="ContactPdfGen" sidebar="false" showHeader="false" renderAs="Pdf">
+
+  <apex:form >
+        <table width="100%" style="border: 1px solid #eee" cellspacing="5" cellpadding="5">
+             
+             <tr>
+               <th width="10%" style="border: 1px solid #eee"> First Name</th>
+               <th width="10%" style="border: 1px solid #eee"> Last Name</th>
+               <th width="30%" style="border: 1px solid #eee"> Email</th>
+               <th width="10%" style="border: 1px solid #eee"> Mobile Phone</th>
+               <th width="20%" style="border: 1px solid #eee"> MailingCountry </th>
+
+             </tr>
+             <apex:repeat value="{!Contacts}" var="con">
+             <tr>
+                   <td width="10%" style="border: 1px solid #eee">{!con.FirstName}</td>
+                   <td width="10%" style="border: 1px solid #eee">{!con.LastName}</td>
+                   <td width="30%" style="border: 1px solid #eee">{!con.Email}</td>
+                   <td width="10%" style="border: 1px solid #eee">{!con.MobilePhone }</td>
+                   <td width="20%" style="border: 1px solid #eee">{!con.MailingCountry}</td>
+
+               </tr>
+
+             
+             </apex:repeat>        
+        </table>
+
+  </apex:form>
+
+</apex:page>

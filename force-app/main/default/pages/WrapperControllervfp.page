@@ -1,0 +1,36 @@
+<apex:page controller="WrapperController" sidebar="false" showHeader="false">
+   <apex:form >
+      <!-- <apex:actionStatus id="pleaseWait">
+           <apex:facet name="start">
+               <apex:image value="{!$Resource.Loading}" style="position: absolute;left: 45%;top: 15%;"/>
+           </apex:facet>
+       </apex:actionStatus> -->
+       <!--<apex:inputText value="{!searchText}">
+           <apex:actionSupport event="onchange" action="{!doSearch}" rerender="pb" status="pleaseWait"/>
+       </apex:inputText>-->
+        <apex:inputText value="{!searchText}" html-placeholder="Search" onkeyup="callmethod()" />
+        <apex:actionFunction name="callmethod" action="{!doSearch}" rerender="pb" />
+        
+        <apex:commandButton value="Search" action="{!doSearch}" rerender="pb" />
+        <apex:commandButton value="Clear" action="{!doclear}" rerender="pb" />
+       <apex:pageBlock id="pb">
+           <apex:pageBlockTable value="{!accData}" var="a">
+               <apex:column >
+                   <apex:inputcheckbox value="{!a.checked}"/>
+               </apex:column>
+               <apex:column value="{!a.acc.Name}"/>
+               <apex:column value="{!a.acc.BillingCity}"/>
+               <apex:column value="{!a.acc.BillingCountry}"/>
+               <apex:column value="{!a.acc.Type}"/>
+              <apex:column >
+                 <apex:commandButton value="ImportCon" action="{!Contacts}" rerender="pb">
+                      <apex:param name="selectedAccId" value="{!a.acc.Id}" assignTo="{!selectedAccId}"/>
+                  </apex:commandButton>
+              </apex:column>
+           </apex:pageBlockTable>  
+           <apex:pageBlockButtons >
+               <apex:commandButton value="Update" action="{!updateRecords}" reRender="pb"/>
+           </apex:pageBlockButtons>  
+       </apex:pageBlock>
+   </apex:form> 
+</apex:page>

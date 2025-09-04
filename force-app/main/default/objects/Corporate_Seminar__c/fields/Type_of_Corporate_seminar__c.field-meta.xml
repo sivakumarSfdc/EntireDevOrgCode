@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Corporate_seminar__c</fullName>
+    <label>Type of Corporate seminar</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>webinar</fullName>
+                <default>false</default>
+                <label>webinar</label>
+            </value>
+            <value>
+                <fullName>workshop</fullName>
+                <default>false</default>
+                <label>workshop</label>
+            </value>
+            <value>
+                <fullName>seminar</fullName>
+                <default>false</default>
+                <label>seminar</label>
+            </value>
+            <value>
+                <fullName>conference</fullName>
+                <default>false</default>
+                <label>conference</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

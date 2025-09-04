@@ -1,0 +1,24 @@
+<apex:page sidebar="false" showHeader="false">
+
+  <apex:form >
+  
+  
+  <script>
+  
+    function MouseOverFun(){
+         document.getElementById('j_id0:j_id1:imageId').style.width = '25%';
+         document.getElementById('j_id0:j_id1:imageId').style.height= '25%';
+
+    }
+   function MouseOUtFun(){
+         document.getElementById('j_id0:j_id1:imageId').style.width = '10%';
+         document.getElementById('j_id0:j_id1:imageId').style.height= '10%';
+
+    }
+
+  </script>
+  
+  <apex:image value="{!$Resource.PlaneStaticResource}" onmouseover="MouseOverFun();"  id="imageId" width="10%" height="10%" onMouseout="MouseOUtFun();"/>
+  
+  </apex:form>
+</apex:page>

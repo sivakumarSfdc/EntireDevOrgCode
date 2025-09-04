@@ -1,0 +1,28 @@
+<apex:page controller="RadioButtonClass">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                <apex:outputPanel >
+                    Gender
+                    <apex:selectRadio value="{!gender}">
+                        <apex:selectOption itemLabel="Male" itemValue="male" />
+                        <apex:selectOption itemLabel="Female" itemValue="female"/>   
+                        <apex:actionSupport event="onchange" action="{!DisplayGender}"/>        
+                    </apex:selectRadio>  <br/>
+                    
+                    Languages Known
+                    <apex:selectCheckboxes value="{!language}">
+                    <apex:selectOption itemLabel="Java" itemValue="Java" />
+                    <apex:selectOption itemLabel="Apex" itemValue="Apex" />
+                    <apex:selectOption itemLabel="Javascript" itemValue="JS" />
+                    <apex:actionSupport event="onchange" action="{!DisplayLanguges}"/>        
+
+                    </apex:selectCheckboxes>   
+
+                </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

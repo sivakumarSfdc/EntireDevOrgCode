@@ -1,0 +1,32 @@
+<apex:page >
+    <style>
+        #myAlert {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 15px 25px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+
+    <apex:form >
+        <apex:commandButton value="Click Me" onclick="showMsg(); return false;" />
+    </apex:form>
+
+    <div id="myAlert">
+        Hello! This is a custom alert.
+        <br></br>
+        <button onclick="hideMsg()">OK</button>
+    </div>
+
+    <script>
+        function showMsg() { document.getElementById('myAlert').style.display = 'block'; }
+        function hideMsg() { document.getElementById('myAlert').style.display = 'none'; }
+    </script>
+</apex:page>

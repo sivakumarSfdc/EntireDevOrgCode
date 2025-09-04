@@ -1,0 +1,24 @@
+<apex:page standardController="Account">
+    <apex:sectionHeader title="Accounts" subtitle="Home"/>
+    <style>
+        .accountTab .tertiaryPalette, .individualPalette .accountBlock .tertiaryPalette, .layoutEdit .individualPalette .accountBlock .tertiaryPalette {
+            background-color: #056764 !important;
+            border-color: #056764  !important;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Recent Accounts">
+            <apex:pageBlockSection title="Account Information" columns="1" collapsible="false">
+                <apex:inputField value="{!Account.Name}"/>
+                <apex:inputField value="{!Account.Type}"/>
+                <apex:inputField value="{!Account.Rating}"/>
+                <apex:inputField value="{!Account.Phone}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Save & New" action="{!quicksave}" oncomplete="window.location.href = window.location.href;"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<apex:page sidebar="false" showHeader="false" standardController="Account">
+
+  <apex:form >
+     <apex:pageBlock >
+     <apex:pageBlockSection >
+     <apex:pageBlockSectionItem >
+     
+                <apex:inputField value="{!Account.type}"/>
+     </apex:pageBlockSectionItem>
+     
+     </apex:pageBlockSection>
+   </apex:pageBlock>
+
+  </apex:form>
+
+  
+
+</apex:page>

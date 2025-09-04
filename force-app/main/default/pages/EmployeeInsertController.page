@@ -1,0 +1,37 @@
+<apex:page id="page" showHeader="false" controller="AccountController">
+    <script src="/soap/ajax/40.0/connection.js" type="text/javascript"></script>
+    <script>
+        function saveAccount(){
+            sforce.connection.sessionId="{!$Api.Session_ID}";
+            var name = document.getElementById('page:form:pb:pbs:pbsi1:name').value;
+            var lstName= document.getElementById('page:form:pb:pbs:pbsi2:varlastNmae').value;
+            if(name == '')
+                alert('Please enter First name');
+            else if(lstName== '')
+                alert('Please enter Last Name');
+            else{                 
+                createAcc();
+            }
+        }
+    </script>
+    <apex:form id="form">
+        <apex:actionFunction name="createAcc" action="{!createAccount}"/>
+        <apex:pageBlock id="pb">
+            <apex:pageBlockSection id="pbs">
+                <apex:pageBlockSectionItem id="pbsi1">
+                    <apex:outputLabel >First Name</apex:outputLabel>
+                    <apex:inputText id="name" value="{!name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem id="pbsi2">
+                    <apex:outputLabel >Last Name</apex:outputLabel>
+                    <apex:inputText id="varlastNmae" value="{!lastName}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Save" onclick="saveAccount(); return false;" />
+                <apex:commandButton value="Save and new" onclick="doFullSave1" />
+
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

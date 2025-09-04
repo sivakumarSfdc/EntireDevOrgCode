@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+    
+    <div class="slds-page-header">
+        <div class="slds-media__body">
+            <h1 class="slds-page-header__title slds-truncate slds-align-middle">This First Example From Document</h1>
+        </div>
+    </div>
+    <br />
+    <aura:attribute name="FirstName" type="String" default="Thota" />
+    <aura:attribute name="SecondName" type="String" default="Siva" />
+    <aura:attribute name="MiddleName" type="String" default="Kumar" />
+    
+    Full Name={!v.FirstName+' '+v.SecondName+' '+v.MiddleName}
+
+	
+</aura:component>

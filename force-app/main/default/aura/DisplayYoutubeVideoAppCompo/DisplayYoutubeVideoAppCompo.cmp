@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+    
+    <!-- we can do this one by two ways
+       1. Using static resorce(it is not effective solution becuase we need to load the entire video from local system,
+          before the we need to arrange video on our local system. If it is available on some video processing website 
+           (Youtube) then download will be extra effort).
+       2. Using iFrame
+    
+    <iFrame>
+      This is very famous tag in VF pages
+      Helps us to show a section in VF page like a frame
+      can also show vf page inside another vf page
+
+   src=""
+     This will hold the URL of the youtube video
+     This URL must be embed format
+     If we dont use embed videos in Lightning from youtube, it will throw error
+    
+     If we want video be played automatically , then we can pass  "autoplay"("?Autoplay=1") -->
+    
+    
+<iframe width="500" height="250" 
+        src="https://www.youtube.com/embed/NKXdhfUcSw8?rel=0&amp;modestbranding=1&amp;autohide=1&amp;showinfo=1&amp;controls=0&amp;autoplay=1"
+        allow="autoplay"></iframe>
+</aura:component>

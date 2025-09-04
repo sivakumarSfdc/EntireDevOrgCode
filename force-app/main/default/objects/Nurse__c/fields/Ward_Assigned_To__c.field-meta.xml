@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ward_Assigned_To__c</fullName>
+    <label>Ward Assigned To</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ward A</fullName>
+                <default>false</default>
+                <label>Ward A</label>
+            </value>
+            <value>
+                <fullName>Ward B</fullName>
+                <default>false</default>
+                <label>Ward B</label>
+            </value>
+            <value>
+                <fullName>Ward C</fullName>
+                <default>false</default>
+                <label>Ward C</label>
+            </value>
+            <value>
+                <fullName>Ward D</fullName>
+                <default>false</default>
+                <label>Ward D</label>
+            </value>
+            <value>
+                <fullName>Ward E</fullName>
+                <default>false</default>
+                <label>Ward E</label>
+            </value>
+            <value>
+                <fullName>Ward F</fullName>
+                <default>false</default>
+                <label>Ward F</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

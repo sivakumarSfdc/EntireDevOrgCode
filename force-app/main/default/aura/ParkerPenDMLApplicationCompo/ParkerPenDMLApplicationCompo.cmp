@@ -1,0 +1,41 @@
+<aura:component controller="ParkerPenApexClass" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="attParkerObj" type="Parker_Pen__c" default="{'sObjectType':'Parker_Pen__c',
+                                                                      'Name':'',
+                                                                      'Price__c':'',
+                                                                      'UID__c':'',
+                                                                      'Oracle_Ext_ID__c':''}" />
+    
+    <div class="slds-page-header">
+        <div class="slds-media__body">
+            <h1 class="slds-page-header__title slds-truncate slds-align-middle">Welcome To ParkerPen DML</h1>
+            <p class="slds-text-body__small slds-line-height__reset">Please Enter Below Details</p>
+        </div>
+    </div>
+    <div class="slds-container-fluid">
+        <div class="slds-form-group">
+            <label>Customer Name : </label>
+            <ui:inputText class="slds-form-control" value="{!v.attParkerObj.Name}" />
+        </div>
+        <div class="slds-form-group">
+            <label>Price : </label>
+            <ui:inputText class="slds-form-control" value="{!v.attParkerObj.Price__c}" />
+        </div>
+        <div class="slds-form-group">
+            <label>UID : </label>
+            <ui:inputText class="slds-form-control" value="{!v.attParkerObj.UID__c}" />
+        </div>
+        <div class="slds-form-group">
+            <label>Oracle Ext ID : </label>
+            <ui:inputText class="slds-form-control" value="{!v.attParkerObj.Oracle_Ext_ID__c}" />
+        </div>
+        
+    </div>
+    <br />
+    <div class="slds-col-md-4 text-center">
+        <lightning:button  label="Create" onclick="{!c.CSCCreateRecord}" />
+        <lightning:button  label="Update" onclick="{!c.CSCUpdateRecord}" />
+        <lightning:button  label="Delete" onclick="{!c.CSCDeleteRecord}" />
+
+    </div>
+
+</aura:component>

@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Simple Interest Form" icon-name="custom:custom17">
+        <div class="slds-var-p-around_medium lgc-bg">
+            <lightning-input type="number" label="Enter Principal Amount" onchange = {PrincipalAmountChangeHandler}></lightning-input>
+            <lightning-input type="number" label="Enter Time in Years" onchange = {TimeChangeHandler}></lightning-input>
+            <lightning-input type="number" label="Enter Rate of Interest" onchange ={InterestChangeHandler}></lightning-input>
+        </div>
+        <br>
+        <lightning-button variant="success" label="Get Interest" onclick = {getInterestButtonHandler} ></lightning-button>
+        <br>
+        <lightning-formatted-text value = {Interest} ></lightning-formatted-text>
+
+    </lightning-card>
+    
+</template>

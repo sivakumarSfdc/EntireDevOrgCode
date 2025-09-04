@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:isUrlAddressable,lightning:actionOverride"
+                controller = "DelAccountsApex"
+                access="global" >
+	<aura:attribute name="recordIds" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:card title="Mass Delete Accounts">
+        <lightning:spinner aura:id="spinner" variant="brand" size="medium" />
+        <p>Deleting selected accounts...</p>
+    </lightning:card>
+
+</aura:component>

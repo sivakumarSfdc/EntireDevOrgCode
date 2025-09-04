@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="vfCallback" type="Object" />
+    <c:popupLWC message="{!v.message}" oncloseevent="{!c.handleLWCClose}"/>
+</aura:component>

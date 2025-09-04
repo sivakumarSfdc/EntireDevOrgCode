@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="CallingApex(Mode-3)Imperative call" icon-name="custom:custom19">
+        <div>
+            <lightning-button variant="success" label="Click to get result" onclick={HandleApexImperativeCall} ></lightning-button>
+            <template if:true={records}>
+                <template for:each={records} for:item="rec">
+                    <p key={rec.Id}>
+                        {rec.Name} -- {rec.Price__c }
+                    </p>
+                </template>
+            </template>
+            <template if:true={error}>
+                 {error}
+            </template>
+    
+        </div>
+    </lightning-card>
+    
+</template>

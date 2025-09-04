@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="CallingApex(Mode-1)Property wire" icon-name="custom:custom19">
+        <template if:true={accounts.data}>
+            <template for:each={accounts.data} for:item="acc">
+                <p key={acc.Id}>
+                    {acc.Name} -- {acc.Phone }
+                </p>
+            </template>
+        </template>
+        <template if:true={accounts.error}>
+             {error}
+        </template>
+    </lightning-card>
+    
+</template>

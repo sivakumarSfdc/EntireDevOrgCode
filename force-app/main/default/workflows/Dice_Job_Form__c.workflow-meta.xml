@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Asst_Ceo_rejection_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Speak with Team for next step&apos;</formula>
+        <name>Asst Ceo rejection action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Asst_ceo_aproval_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Everything is ok! Wait for CEO Approval&apos;</formula>
+        <name>Asst ceo aproval action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CEO_Rejection_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;This time no need to invest this amount of salary&apos;</formula>
+        <name>CEO Rejection action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ceo_approval_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;We need this candidate For Completing the project&apos;</formula>
+        <name>Ceo approval action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Field_Update_at_TL_level</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&quot;He is ok! let me wait Manage Decision&quot;</formula>
+        <name>Field Update at TL level</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Field_Update_initial</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&quot;Please wait we will verify and then confirm&quot;</formula>
+        <name>Field Update initial</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Field_update_CEO_Level</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&quot;We have urgent requirement, Salary is a not matter now &quot;</formula>
+        <name>Field update CEO Level</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Field_update_Manger_Level</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&quot;He is asking High CTC, Let me wait until CEO Confirmation&quot;</formula>
+        <name>Field update Manger Level</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejection_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;No need to Hire this Candidate&apos;</formula>
+        <name>Final Rejection action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_approval_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&quot;Take him out Immediately(FA)&quot;</formula>
+        <name>Final approval action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initial_FU</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Please wait! We will come back&apos;</formula>
+        <name>Initial FU</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Last_approval_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Technically Strong Hire this candidate with the same&apos;</formula>
+        <name>Last approval action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Manager_approval_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Wait for Asst.Ceo confirmation&apos;</formula>
+        <name>Manager approval action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Manger_Email</fullName>
+        <field>Manager_Email__c</field>
+        <formula>Owner:User.Manager.Email</formula>
+        <name>Manger Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Manger_Rejection_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Speak with developer for next step&apos;</formula>
+        <name>Manger Rejection action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>TL_AP_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Please wait! I need to get confirmation from Manager&apos;</formula>
+        <name>TL AP action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Team_Lead_Rejection_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Sorry! He is asking High salary&apos;</formula>
+        <name>Team Lead Rejection action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Team_lead_AP_action</fullName>
+        <field>Applicant_Status__c</field>
+        <formula>&apos;Please Wait! Need to get Confirmation from Manager&apos;</formula>
+        <name>Team lead AP action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

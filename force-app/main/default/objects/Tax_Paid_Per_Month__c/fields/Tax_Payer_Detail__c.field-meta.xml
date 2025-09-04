@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_Payer_Detail__c</fullName>
+    <label>Tax Payer Detail</label>
+    <referenceTo>Tax_Payer_Detail__c</referenceTo>
+    <relationshipLabel>Tax Paid Per Months</relationshipLabel>
+    <relationshipName>Tax_Paid_Per_Months</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

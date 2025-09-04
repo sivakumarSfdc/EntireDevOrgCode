@@ -1,0 +1,28 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickAction"
+                access="global" >
+    
+    <aura:attribute name="attRecordError" type ="String" access="private" />
+    
+    <force:recordData aura:id ="EmployeeRecDelete"
+                     fields ="Id"
+                     recordId ="{!v.recordId}"
+                     targetError ="{!v.attRecordError}" />
+    
+    <!--Display Delete Window -->
+    <div class="Delete Record">
+        
+        <lightning:card title ="Delete Employee Record" iconName ="action:delete">
+            <div class="slds-p-horizantal--small">
+                <lightning:button label ="Delete Record"
+                                  variant ="destructive"
+                                  onclick ="{!c.handleDelete}"/>
+            </div>
+        </lightning:card>
+    </div>
+    
+    <aura:if isTrue="{!not(empty(v.attRecordError))}">
+        {!v.attRecordError}
+    </aura:if>
+                     
+	
+</aura:component>

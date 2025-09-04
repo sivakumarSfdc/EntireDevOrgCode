@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validation_For_Steve</fullName>
+    <active>true</active>
+    <errorConditionFormula>(($User.Id  = &quot;0055i00000Baoj8&quot;)&amp;&amp;( ISBLANK( Salary_Expected__c) ))</errorConditionFormula>
+    <errorDisplayField>Salary_Expected__c</errorDisplayField>
+    <errorMessage>Value need to be required</errorMessage>
+</ValidationRule>

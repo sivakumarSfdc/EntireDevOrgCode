@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RT_for_PL_LCD</fullName>
+    <active>true</active>
+    <label>RT for LCD</label>
+    <picklistValues>
+        <picklist>Product_Type__c</picklist>
+        <values>
+            <fullName>LCD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plasma</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

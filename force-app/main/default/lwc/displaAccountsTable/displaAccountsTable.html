@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Display Accounts" icon-name="standard:account" variant="Narrow">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="search"
+            onchange={handleInputChange}
+            variant="label-hidden"
+            class="slds-var-m-bottom_small"
+					label="Search"
+					placeholder="Search for bears"
+					value={searchTerm}></lightning-input>
+        </div>
+        <div style="height:300px">
+            <lightning-datatable key-field="Id"
+            data={data}
+            columns={columns}
+            hide-checkbox-column="true" 
+            onrowaction={handleAction}
+            ></lightning-datatable>
+
+        </div>
+    </lightning-card>
+</template>

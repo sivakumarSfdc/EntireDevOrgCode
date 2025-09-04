@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Seminar_Changed_EA</fullName>
+        <description>Seminar Changed EA</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Attendee_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Seminar_Location_changed_ET</template>
+    </alerts>
+    <alerts>
+        <fullName>Seminar_Changed_EA_for_Speaker</fullName>
+        <description>Seminar Changed EA for Speaker</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Speaker_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Seminar_Date_changed_ET</template>
+    </alerts>
+    <alerts>
+        <fullName>Seminar_Feedback_Email_alert</fullName>
+        <description>Seminar Feedback Email alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Attendee_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Seminar_Feed_back_ET</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Final_approval_Rejected</fullName>
+        <field>Sent_For_Approval__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Final approval Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Initial_action</fullName>
+        <field>Sent_For_Approval__c</field>
+        <literalValue>Yes</literalValue>
+        <name>Initial action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reject_action</fullName>
+        <field>Seminar_Status__c</field>
+        <literalValue>Scheduled</literalValue>
+        <name>Reject action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>approval_status_approved</fullName>
+        <field>Sent_For_Approval__c</field>
+        <literalValue>Approved</literalValue>
+        <name>approval status approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>up_date_pick_list</fullName>
+        <field>Seminar_Status__c</field>
+        <literalValue>Cancelled</literalValue>
+        <name>up date pick list</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

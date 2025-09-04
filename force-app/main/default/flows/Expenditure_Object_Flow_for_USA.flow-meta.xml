@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <decisions>
+        <name>Taking_Decision_on_RT</name>
+        <label>Taking Decision on RT</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>USA_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Current_Location__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>USA</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Page_Layout</targetReference>
+            </connector>
+            <label>USA Outcome</label>
+        </rules>
+        <rules>
+            <name>India_Outcome</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Current_Location__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>India</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Updated_to_Common_RT</targetReference>
+            </connector>
+            <label>India Outcome</label>
+        </rules>
+    </decisions>
+    <description>v4</description>
+    <environments>Default</environments>
+    <interviewLabel>Expenditure Object Flow for USA {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Expenditure Object Flow for USA</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Page_Layout</name>
+        <label>Update Page Layout</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>0125i000000FYA0AAO</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Updated_to_Common_RT</name>
+        <label>Updated to Common RT</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <stringValue>0125i000000FY8nAAG</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Taking_Decision_on_RT</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Current_Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>USA</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Current_Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>India</stringValue>
+            </value>
+        </filters>
+        <object>Expenditure__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

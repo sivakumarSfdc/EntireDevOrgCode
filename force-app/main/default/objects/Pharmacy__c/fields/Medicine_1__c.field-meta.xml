@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Medicine_1__c</fullName>
+    <label>Medicine 1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Acetaminophen</fullName>
+                <default>false</default>
+                <label>Acetaminophen</label>
+            </value>
+            <value>
+                <fullName>Cymbalta</fullName>
+                <default>false</default>
+                <label>Cymbalta</label>
+            </value>
+            <value>
+                <fullName>Leqvio</fullName>
+                <default>false</default>
+                <label>Leqvio</label>
+            </value>
+            <value>
+                <fullName>Omeprazole</fullName>
+                <default>false</default>
+                <label>Omeprazole</label>
+            </value>
+            <value>
+                <fullName>Dupixent</fullName>
+                <default>false</default>
+                <label>Dupixent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

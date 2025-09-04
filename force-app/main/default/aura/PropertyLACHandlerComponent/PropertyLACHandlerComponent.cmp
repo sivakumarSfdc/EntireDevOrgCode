@@ -1,0 +1,78 @@
+<aura:component>
+    
+    
+    <aura:attribute name="attChildCompo" type ="List" />
+    <aura:if isTrue="{!not(empty(v.attChildCompo))}">
+         <article class="slds-card">
+        <div class="slds-media__body">
+            <p class="slds-text-body__small slds-line-height__reset">List Of Propert Records</p>
+        </div>
+        <!-- Table and and his rows -->
+        <div class="slds-card__body">
+        <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered">
+            <!-- this is used to show table columns -->
+            <thead>
+                <tr class="slds-text-title__caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title ="Name">Name</div>
+                    </th>
+
+                    <th scope="col">
+                        <div class="slds-truncate" title ="Record Id">Record Id</div>
+                    </th>
+                    <th scope="col">
+                    <div class="slds-truncate" title="BuildingType">BuildingType</div>
+                    </th>                    
+                    <th scope="col">
+                        <div class="slds-truncate" title="Price">Price</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Discount">Discount</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Final Price">Final Price</div>
+                    </th>
+                    
+                    
+                </tr>
+            </thead>
+            <!-- this is used to show table body -->
+            <tbody>
+                <!-- iterate collected account records-->
+                <aura:iteration items="{!v.attChildCompo}" var="property">
+                    <tr class="slds-hint-parent">
+                        <td scope="row">
+                            <div class="slds-truncate">
+                            <a href="javascript:void(O);">{!property.Name}</a>
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate">{!property.Id}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate">{!property.Type__c}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate">{!property.Price__c}</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate">{!property.Discount__c}%</div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate">{!property.Final_Price__c}</div>
+                        </td>
+                        
+                    </tr>
+                </aura:iteration> 
+            </tbody>
+        </table>
+    </div>
+
+    </article>
+        <aura:set attribute="else">
+            no records found!
+        </aura:set>
+    </aura:if>
+   
+    
+</aura:component>

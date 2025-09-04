@@ -1,0 +1,71 @@
+<apex:page sidebar="false" showHeader="false">
+
+    <style>
+    
+       .custom-border{
+         border: 1px solid #FFFFFF;
+         padding: 5px;
+         outline: none;
+         
+       }
+
+       
+       .card{
+         display: inline-block;
+         width: 100px;
+         margin-right: 10px;
+         background-color: #f8f9fa;;
+         border: 1px solid #ccc;
+         padding: 5px;
+         
+       }
+        .link-container{
+         margin-top:10px;
+         margin-right: 10px;
+         margin-left:-10px;
+         width: 400px;
+         padding: 5px;
+         
+       }
+        .link-container a{
+         text-decoration: none;
+         color:#3726b9;
+         margin-left: 5px;
+         
+       }
+
+
+    </style>
+    <apex:form >
+        <div align="center">
+            <div style="margin-top: 10%;<!--border: 1px solid black;-->">
+              <img id="theImage" src="https://www.google.co.in/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google"/>
+            </div>
+            
+            <div style="display:flex;align-items:center;padding:8px;border:1px solid #ccc;max-width:400px;margin:20px auto;border-radius:30px;">
+                <div style ="flex:1;border:none;font-size:14px;outline:none;margin-left:-60px;">          
+                     <apex:inputText size="30" styleClass="custom-border" /> 
+                 </div>
+             </div>
+              
+             <div class="card"> 
+                <apex:outputText >Google Search</apex:outputText>
+             </div>
+             <div class="card"> 
+                <apex:outputText >Future Topics</apex:outputText>
+             </div>
+            <div class="link-container">
+               Google Offered in:
+               <a>हिंदी</a>
+               <a >English</a>
+               <a >తెలుగు</a>
+               <a >தமிழ்</a>
+               <a >ಕನ್ನಡ</a>
+               <a >ਪੰਜਾਬੀ</a>
+             </div>
+
+        </div>
+    </apex:form>  
+
+
+</apex:page>

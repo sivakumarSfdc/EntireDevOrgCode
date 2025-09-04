@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ward_Type__c</fullName>
+    <label>Ward Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CAUSALITY</fullName>
+                <default>false</default>
+                <label>CAUSALITY</label>
+            </value>
+            <value>
+                <fullName>GENERAL WARD</fullName>
+                <default>false</default>
+                <label>GENERAL WARD</label>
+            </value>
+            <value>
+                <fullName>SEMI-SPECIAL ROOM</fullName>
+                <default>false</default>
+                <label>SEMI-SPECIAL ROOM</label>
+            </value>
+            <value>
+                <fullName>SPECIAL WARDS</fullName>
+                <default>false</default>
+                <label>SPECIAL WARDS</label>
+            </value>
+            <value>
+                <fullName>DELUXE ROOM</fullName>
+                <default>false</default>
+                <label>DELUXE ROOM</label>
+            </value>
+            <value>
+                <fullName>CCU</fullName>
+                <default>false</default>
+                <label>CCU</label>
+            </value>
+            <value>
+                <fullName>ICCU</fullName>
+                <default>false</default>
+                <label>ICCU</label>
+            </value>
+            <value>
+                <fullName>SICU</fullName>
+                <default>false</default>
+                <label>SICU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

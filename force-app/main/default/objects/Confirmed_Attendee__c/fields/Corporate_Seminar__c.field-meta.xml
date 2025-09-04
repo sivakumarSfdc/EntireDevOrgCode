@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Corporate_Seminar__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Corporate Seminar</label>
+    <referenceTo>Corporate_Seminar__c</referenceTo>
+    <relationshipLabel>List of Confirmed Attendees</relationshipLabel>
+    <relationshipName>Confirmed_Attendees</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

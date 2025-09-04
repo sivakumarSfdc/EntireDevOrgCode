@@ -1,0 +1,69 @@
+<template>
+    <lightning-card title="Account Viewer" icon-name="standard:account">
+
+        <div class="slds-m-bottom_medium slds-align_absolute-center">
+            <lightning-button label="Active Accounts" variant="brand" onclick={handleActiveClick} class="slds-m-right_small"></lightning-button>
+            <lightning-button label="Inactive Accounts" variant="neutral" onclick={handleInactiveClick} class="slds-m-right_small"></lightning-button>
+            <lightning-button label="Activate" variant="neutral" onclick={handleActivate} disabled={isActivateDisabled} class="slds-m-right_small"></lightning-button>
+            <lightning-button label="Inactivate" variant="neutral" onclick={handleInactivate} disabled={isInactivateDisabled}></lightning-button>
+        </div>
+
+        <template if:true={isLoading}>
+            <div class="slds-align_absolute-center slds-m-around_medium">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={showGreeting}>
+            <div class="slds-align_absolute-center slds-text-heading_small slds-m-around_medium">
+                Click Any Button to Start!
+            </div>
+        </template>
+
+        <template if:true={showTable}>
+            <lightning-datatable
+                key-field="Id"
+                data={accountData}
+                columns={columns}
+                hide-checkbox-column={hideCheckbox}
+                show-row-number-column
+                onrowselection={handleRowSelection}
+                onrowaction={handleRowAction}>
+            </lightning-datatable>
+        <template if:true={showNoRecords}>
+            <div class="slds-align_absolute-center slds-text-color_weak slds-m-around_medium">
+                No records found to display.
+            </div>
+        </template>            
+        </template>
+        
+
+        <template if:true={showModal}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 class="slds-modal__title">Related Contacts</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <template if:true={selectedAccountContacts.length}>
+                            <ul>
+                                <template for:each={selectedAccountContacts} for:item="contact">
+                                    <li key={contact.Id}>
+                                        {contact.Id} — {contact.Name}
+                                    </li>
+                                </template>
+                            </ul>
+                        </template>
+                        <template if:false={selectedAccountContacts.length}>
+                            No contacts found.
+                        </template>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button label="Close" onclick={closeModal}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </lightning-card>
+</template>

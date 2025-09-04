@@ -1,0 +1,44 @@
+<apex:page sidebar="false" showHeader="false">
+
+
+  
+  <script>
+  
+   function GrandTotal(){
+   
+    let A = document.getElementById("valA").value;
+    let B = document.getElementById("valB").value;
+    
+    if((!isNaN(Number(A))) || (!isNaN(Number(B))) ){
+    
+    
+       if(Number(A) != "" && Number(B) != ""){
+             let c = Number(A) + Number(B);
+             document.getElementById("valTotal").value = c;
+       }
+       
+
+    }
+     
+    
+   
+   
+   }
+  
+  </script>
+
+
+  <apex:form >
+  
+    <label> Enter A: </label>
+    <input  id="valA" oninput = "GrandTotal();"> </input> <br/>
+    
+    <label> Enter B: </label>
+    <input  id="valB" oninput = "GrandTotal();"> </input> <br/>
+    <label> Total: </label>
+    <input  id="valTotal"> </input>
+
+
+      
+  </apex:form>
+</apex:page>

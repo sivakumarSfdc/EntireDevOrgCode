@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    
+    <ui:inputText aura:id ="fName" label="FirstName" placeholder="FirstName" value ="" />
+	<ui:inputText aura:id ="sName" label="SecondName" placeholder="SecondName" value ="" />
+    <!-- Asper best practise we need to call Controller for processing our input,"c."refers to JsController side -->
+    <ui:button aura:id="mButton" label ="Click" press ="{!c.displayFullName}" /><!-- displayFullName is Js Method -->
+    <ui:button aura:id="mClearButton" label ="Clear" press ="{!c.clearTheForm}" /><!-- clearTheForm is Js Method -->
+    <ui:outputText aura:id="outFullName" value ="" />
+
+</aura:component>

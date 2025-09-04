@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Company</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Company__c.Industry__c</field>
+            <operation>equals</operation>
+            <value>Tourism</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Company__c</referenceTo>
+    <relationshipLabel>Employee List</relationshipLabel>
+    <relationshipName>Employees</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

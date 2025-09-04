@@ -1,0 +1,49 @@
+<apex:page id="page">
+    <script src="/soap/ajax/40.0/connection.js" type="text/javascript"></script>
+    <script>
+        function saveAccount(){
+            sforce.connection.sessionId="{!$Api.Session_ID}";
+            var name = document.getElementById('page:form:pb:pbs:pbsi1:name').value;
+            var lastname= document.getElementById('page:form:pb:pbs:pbsi2:lastname').value;
+            if(name == ''){
+                            alert('Please enter First name');
+
+            }
+            else if(lastname == ''){
+                            alert('Please enter Last Name');
+
+            }
+            else{   
+                try{
+                var employee = new sforce.SObject("Employee__c");
+                employee.Name = name;
+                employee.Last_Name__c = lastname;
+                var result = sforce.connection.create([employee]);
+                alert('result ='+result );
+                var recordId = result[0].id;
+                window.open('/'+recordId);
+
+                } catch(err){
+                 console.log('Exception Msg ='+err.message);
+                }          
+            }
+        }
+    </script>
+    <apex:form id="form">
+        <apex:pageBlock id="pb">
+            <apex:pageBlockSection id="pbs">
+                <apex:pageBlockSectionItem id="pbsi1">
+                    <apex:outputLabel >First Name</apex:outputLabel>
+                    <apex:inputText id="name"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem id="pbsi2">
+                    <apex:outputLabel >Last Name</apex:outputLabel>
+                    <apex:inputText id="lastname"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" onclick="saveAccount(); return false;"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

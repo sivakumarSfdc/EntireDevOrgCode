@@ -1,0 +1,51 @@
+<apex:page >
+    <h2>VF to LWC with Message Passing</h2>
+    <apex:form >
+        <apex:commandButton value="Open LWC Popup" onclick="openPopup(); return false;" />
+    </apex:form>
+
+    <apex:includeLightning />
+    <div id="popupContainer"></div>
+
+    <script>
+        let popUpInstance = null;
+        function openPopup() {
+            const messageFromVF = "Hello from Visualforce!";
+
+            $Lightning.use("c:popupApp", function() {
+                console.log("LWC App loaded");
+                $Lightning.createComponent(
+                    "c:popupLwc",
+                    {
+                        message: messageFromVF,
+                        vfCallback: window.handleLWCCloseFromVF
+                    },
+                    "popupContainer",
+                    function(cmp) {
+                        console.log("Popup LWC created");
+                        popUpInstance = cmp;
+                    }
+                );
+            });
+        }
+        window.handleLWCCloseFromVF = function() {
+            console.log("Callback received in VF — closing popup...");
+            try {
+                if (popUpInstance && typeof popUpInstance.destroy === "function") {
+                    popUpInstance.destroy(); // ✅ Lightning Out cleanup
+                    popUpInstance = null;
+                }
+            } catch (err) {
+                console.error("Error destroying popup:", err);
+            } finally {
+                document.getElementById("popupContainer").innerHTML = "";
+            }
+        };
+
+        // Debug unhandled errors
+        window.addEventListener("error", function(event) {
+            console.error("Global VF error:", event.error || event.message);
+        });
+
+    </script>
+</apex:page>

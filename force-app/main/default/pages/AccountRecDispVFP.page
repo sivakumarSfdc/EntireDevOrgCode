@@ -1,0 +1,50 @@
+<apex:page standardController="Account" recordSetVar="acc"  >
+    //StandardSetController
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!acc}" var="e" rows="10">
+                <apex:column value="{!e.Name}"/>
+                <apex:column value="{!e.Type}"/>
+                <apex:column value="{!e.Rating}"/>
+                <apex:column value="{!e.Phone}"/>
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons >
+                <Apex:commandButton value="First" action="{!first}"/>
+                <Apex:commandButton value="Previous" action="{!previous}"/>
+                <Apex:commandButton value="Next" action="{!next}"/>
+                <Apex:commandButton value="Last" action="{!last}"/>
+            </apex:pageBlockButtons>
+            <!--
+            <apex:dataTable value="{!emps}" var="e">
+                <apex:column value="{!e.Account__c}"/>
+                <apex:column value="{!e.Name__c}"/>
+                <apex:column value="{!e.Salary__c}"/>
+                <apex:column value="{!e.Tax_Amount__c}"/>
+            </apex:dataTable>
+            
+            
+            <table style="width:100%;border:1px solid #eee" cellpadding="3" cellspacing="5">
+                <tr>
+                    <th style="background:black; color:white">Account</th>
+                    <th style="background:black; color:white" >Name</th>
+                    <th style="background:black; color:white">Salary</th>
+                    <th style="background:black; color:white">Tax</th>
+                </tr>
+                
+                <apex:repeat value="{!emps}" var="e">
+                    <tr>
+                        <td>{!e.Account__r.Name}</td>
+                        <td>{!e.Name__c}</td>
+                        <td>{!e.Salary__c}</td>
+                        <td>{!e.Tax_Amount__c}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+            
+            <apex:datalist value="{!emps}" var="e">
+                {!e.Account__r.name}
+            </apex:datalist>
+            -->
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

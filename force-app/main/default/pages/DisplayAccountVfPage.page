@@ -1,0 +1,22 @@
+<apex:page >
+    <!-- while adding below tag then this vf page gets capability to display LightningComponent -->
+    <apex:includeLightning />
+    
+    <!-- below one is DIV Element entire lightning component will be rendered -->
+    <div id="lightning" />
+    <!-- below java script is use to launch the lightning component -->
+    <script>
+       $Lightning.use("c:DisplayAccountRecordsApp",function(){
+           $Lightning.createComponent(
+               //component name
+               "c:DisplayAccountRecordsAppCompo",
+               //attributes to set on the component when its created(optional)
+               {},
+               //DomLocator or a div element where to insert the component
+               'lightning',
+               //call back function
+               function(component){
+           });
+       });
+    </script>
+</apex:page>

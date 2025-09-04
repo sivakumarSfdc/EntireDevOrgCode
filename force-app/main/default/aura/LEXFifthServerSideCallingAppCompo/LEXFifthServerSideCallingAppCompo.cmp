@@ -1,0 +1,21 @@
+<aura:component controller="MapdataApexClass" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+    
+    <aura:attribute name="attMapValues" type="Object" />
+    
+	<div class="slds-m-around__xx-large">
+        <div class="slds-box slds-theme__default">
+            <lightning:button label="getMap" onclick="{!c.callClientSideController}" />
+            
+            <aura:iteration items="{!v.attMapValues}" var="mapKey">
+                <strong><p> {!mapKey.Token}</p></strong>
+                <br/>
+                <aura:iteration items="{!mapKey.data}" var="value">
+                    <p>{!value}</p>
+                </aura:iteration>
+                <br />
+                <br />
+            </aura:iteration>
+        </div>
+    </div>
+</aura:component>

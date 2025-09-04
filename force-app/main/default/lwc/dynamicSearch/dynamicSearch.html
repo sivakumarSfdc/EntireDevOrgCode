@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="Dynamic Search">
+        <div class="slds-m-around_medium">
+            <lightning-input 
+                label="Base Object" 
+                name="objectName" 
+                value={objectName} 
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <lightning-input 
+                label="Search Fields (comma-separated)" 
+                name="filterFields" 
+                value={filterFields} 
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <lightning-input 
+                label="Search Results (comma-separated)" 
+                name="displayFields" 
+                value={displayFields} 
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <lightning-input 
+                label="Filter Field Value" 
+                name="filterFieldValue" 
+                value={filterFieldValue} 
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <lightning-button 
+                label="Search" 
+                onclick={handleSearch} 
+                class="slds-m-top_medium">
+            </lightning-button>
+
+            <template if:true={results}>
+                <lightning-datatable
+                    data={results}
+                    columns={columns}
+                    key-field="id"
+                    class="slds-m-top_medium">
+                </lightning-datatable>
+            </template>
+
+            <template if:true={error}>
+                <div class="slds-text-color_error slds-m-top_medium">{error}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

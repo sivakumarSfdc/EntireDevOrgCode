@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Tab set In LWC" icon-name="custom:custom15">
+        <lightning-button variant="brand" label="showCashlessInfo" onclick={hanlderEvent} ></lightning-button>
+        <lightning-button variant="brand" label="showReumersimentInfo" onclick={hanlderEvent} ></lightning-button>
+        <lightning-button variant="brand" label="hideCashlessInfo" onclick={hanlderEvent} ></lightning-button>
+        <lightning-button variant="brand" label="hideReumbersimentInfo" onclick={hanlderEvent} ></lightning-button>
+
+        <lightning-tabset variant="scoped">
+            <template if:true={varTabOneBool}>
+                <lightning-tab icon-name="custom:custom12" icon-assistive-text="text1" label ="ItemOne">
+                    showCashlessInfo
+                </lightning-tab>
+            </template>
+            <template if:true={varTabTwoBool}>
+                <lightning-tab label="Item Two" end-icon-name="custom:custom2" end-icon-alternative-text="text2" show-error-indicator="true">
+                    showReumbersmentInfo
+                </lightning-tab>
+            </template>
+
+        </lightning-tabset>
+    </lightning-card>
+    
+</template>

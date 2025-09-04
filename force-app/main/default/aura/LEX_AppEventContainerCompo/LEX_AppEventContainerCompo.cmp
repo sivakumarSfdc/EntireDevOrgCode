@@ -1,0 +1,6 @@
+<aura:component >
+    
+    <c:LEX_AppEventNotifierComponent />
+	<c:LEX_AppEventHandlerComponent />
+
+</aura:component>

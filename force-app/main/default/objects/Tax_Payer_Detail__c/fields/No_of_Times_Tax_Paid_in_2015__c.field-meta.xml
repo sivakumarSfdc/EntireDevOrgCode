@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_of_Times_Tax_Paid_in_2015__c</fullName>
+    <label>No. of Times Tax Paid in 2015</label>
+    <summaryFilterItems>
+        <field>Tax_Paid_Per_Month__c.Year__c</field>
+        <operation>equals</operation>
+        <value>2015</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Tax_Paid_Per_Month__c.Tax_Payer_Detail__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

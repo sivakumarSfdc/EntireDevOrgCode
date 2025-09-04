@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Debit_Not_allowed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( Credit__c , Debit__c )</errorConditionFormula>
+    <errorMessage>Please contact admin you couldn&apos;t perform credit and debit at a time</errorMessage>
+</ValidationRule>

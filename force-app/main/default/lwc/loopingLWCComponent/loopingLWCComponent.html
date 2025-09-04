@@ -1,0 +1,12 @@
+<template>
+
+    <lightning-card title="Looping Component" icon-name="custom:custom16">
+        <template for:each ={EmpListProperty} for:item="Emp">
+            <li key ={Emp.id}>
+                Id : {Emp.id} , Name : {Emp.name} | {Emp.title}
+            </li>
+        </template>
+        <lightning-button label ="Show List" onclick = {EmpListShowHandler}></lightning-button>
+    </lightning-card>
+    
+</template>
