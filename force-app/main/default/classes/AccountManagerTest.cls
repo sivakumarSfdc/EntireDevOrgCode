@@ -1,5 +1,9 @@
 @isTest
 private class AccountManagerTest {
+    /* Add paragarph here
+    * Test class for AccountManager class
+    * This class contains test methods to test the functionality of AccountManager class
+    */
     //Helper method to create dummy record
     static Id createTestRecord(){
         //Create test record
