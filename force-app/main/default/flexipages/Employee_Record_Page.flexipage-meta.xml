@@ -262,6 +262,16 @@
                 <identifier>RecordCurrencyIsoCodeField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Summary__c</fieldItem>
+                <identifier>RecordSummary_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-083d0bb2-ee63-4f86-be2b-07cfaca90a90</name>
         <type>Facet</type>
     </flexiPageRegions>

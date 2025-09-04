@@ -1745,6 +1745,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Employee__c.Summary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Energy_Audit__c.Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
