@@ -463,16 +463,6 @@
                 <identifier>RecordNumberofLocations_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Active__c</fieldItem>
-                <identifier>RecordActive_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-f88c9393-d07d-4c91-9b93-beaf9e8b6357</name>
         <type>Facet</type>
     </flexiPageRegions>
