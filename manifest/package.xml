@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-
-    <!-- Apex -->
+	    <!-- Apex -->
    <!-- <types>
         <members>*</members>
         <name>ApexClass</name>
@@ -172,7 +171,7 @@
     </types> -->
 
     <!-- API version -->
-    <types>
+    <!--<types>
         <members>AgriFarmerDBFolder</members>
         <name>Dashboard</name>
     </types>
@@ -183,7 +182,20 @@
     <types>
         <members>npsp</members>
         <name>InstalledPackage</name>
+    </types> -->
+   <!-- <types>
+        <members>Test_Delete_Profile</members>
+        <name>Profile</name>
+    </types> -->
+    <types>
+        <members>Customer_Account_Page</members>
+        <members>Partner_Account_Page</members>
+        <name>FlexiPage</name>
     </types>
-    
-    <version>62.0</version>
+    <types>
+        <members>AccountHandler</members>
+        <name>ApexClass</name>
+    </types>
+
+    <version>65.0</version>
 </Package>
